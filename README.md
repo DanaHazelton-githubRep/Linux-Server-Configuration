@@ -484,15 +484,15 @@ sudo service apache2 restart
 
 ## Resourses and Documentation used to complete project:
 
-Udacity course work Linux Server Configuration:
-Amazon light sail:
-Amazon lightsail Documentation:
-Udacity foroum pages (alot of them):
-Ubuntu - https://help.ubuntu.com/lts/serverguide/index.html:
-http://flask.pocoo.org/docs/0.12/deploying/mod_wsgi/:
-Google:
-Stackoverflow:
-WWW:
+### Udacity course work Linux Server Configuration:
+### Amazon light sail:
+### Amazon lightsail Documentation:
+### Udacity foroum pages (alot of them):
+### Ubuntu - https://help.ubuntu.com/lts/serverguide/index.html:
+### http://flask.pocoo.org/docs/0.12/deploying/mod_wsgi/:
+### Google:
+### Stackoverflow:
+### WWW:
 
 
 
