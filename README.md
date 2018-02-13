@@ -466,11 +466,11 @@ grader@ip-172-26-3-183:/etc/apache2/sites-available$ cat catalog-app.conf
 
 ## Then needed to enable config file on server to get it working:
 
-grader@ip-172-26-3-183:/etc/apache2/sites-enabled$ ll
-total 8
-drwxr-xr-x 2 root root 4096 Feb 10 22:01 ./
-drwxr-xr-x 8 root root 4096 Feb 12 00:25 ../
-lrwxrwxrwx 1 root root   35 Feb 10 22:01 catalog-app.conf -> ../sites-available/catalog-app.conf 
+grader@ip-172-26-3-183:/etc/apache2/sites-enabled$ ll..
+total 8..
+drwxr-xr-x 2 root root 4096 Feb 10 22:01 ./..
+drwxr-xr-x 8 root root 4096 Feb 12 00:25 ../..
+lrwxrwxrwx 1 root root   35 Feb 10 22:01 catalog-app.conf -> ../sites-available/catalog-app.conf..
 
 ## This required diabling the default.conf file :
 sudo a2dissite 000-default.conf
@@ -489,7 +489,7 @@ sudo service apache2 restart
 ### Amazon lightsail Documentation:
 ### Udacity foroum pages (alot of them):
 ### Ubuntu - https://help.ubuntu.com/lts/serverguide/index.html:
-### http://flask.pocoo.org/docs/0.12/deploying/mod_wsgi/:
+### Flask - http://flask.pocoo.org/docs/0.12/deploying/mod_wsgi/:
 ### Google:
 ### Stackoverflow:
 ### WWW:
