@@ -1,4 +1,4 @@
-### Partybarge Car Catalog - Final Project for FSND Linux Server Configuration:
+# Partybarge Car Catalog - Final Project for FSND Linux Server Configuration:
 
 ## Server Info
 Server Hosted by Amazon Lightsail
@@ -49,13 +49,13 @@ GeSLRv8EL6ErwGHV31XhB6bSLYHyu6sJ8XE3DchFJjB9Zs8aoL12rI8xvcteWxAq
 5H1cZ9MPbrocT9kt73R7L1yFJW7FRYZPlBu5rWrcAsVa4luzacbaJCQ96jAkqdys
 -----END RSA PRIVATE KEY-----
 
-# Login as grader  <--password grader
+## Login as grader  <--password grader
 
 dana ~ $ ssh grader@52.15.228.45 -p 2200 -i ~/.ssh/amazon_aws
 Welcome to Ubuntu 16.04.3 LTS (GNU/Linux 4.4.0-1013-aws x86_64)
 
 
-# The grader user can run commands using sudo to inspect files that are readable only by root.
+## The grader user can run commands using sudo to inspect files that are readable only by root.
 
 grader@ip-172-26-3-183:~$ sudo /etc/passwd
 [sudo] password for grader: 
@@ -115,8 +115,8 @@ Welcome to Ubuntu 16.04.3 LTS (GNU/Linux 4.4.0-1013-aws x86_64)
 Port 22 <--default is deny
 Port 2200 <-- allowed for shh
 
-# You cannot log in as root remotely.
-## Authentication:
+## You cannot log in as root remotely.
+dh3008@ip-172-26-3-183:~$ sudo nano /etc/ssh/sshd_config
 LoginGraceTime 120
 PermitRootLogin no <-- disabled
 StrictModes yes
@@ -136,7 +136,7 @@ StrictModes yes
              If this option is set to “no”, root is not allowed to log in.
 
 
-# SSH is hosted on non-default port.
+## SSH is hosted on non-default port.
 
 dh3008@ip-172-26-3-183:~$ sudo cat /etc/ssh/sshd_config
 ## Package generated configuration file
@@ -163,7 +163,7 @@ Welcome to Ubuntu 16.04.3 LTS (GNU/Linux 4.4.0-1013-aws x86_64)
 Last login: Tue Feb  6 01:33:26 2018 from 108.252.105.240
 
 
-# The web server responds on port 80.
+## The web server responds on port 80.
 
 
 ## Change timezone to UTC
@@ -357,7 +357,7 @@ drwxr-xr-x 4 www-data www-data 4096 Feb 12 02:59 ItemCatalog/ <-- App files
 
 ## WSGI file:
 grader@ip-172-26-3-183:/srv/catalog$ cat catalog.wsgi 
-#!/usr/bin/python
+/#!/usr/bin/python
 import sys
 import logging
 logging.basicConfig(stream=sys.stderr)
@@ -368,7 +368,7 @@ from __init__ import app as application
 application.secret_key = 'super_secret_key'
  
 
-# Item Catalog files:
+## Item Catalog files:
 grader@ip-172-26-3-183:/srv/catalog/ItemCatalog$ ll
 total 68
 drwxr-xr-x 4 www-data www-data  4096 Feb 12 02:59 ./
@@ -408,7 +408,7 @@ To match server addresses
 	Renamed all file names in directory with lowercase only - resolved issue 
 
 
-# Create and enabed catalog.conf(config file):
+## Create and enabed catalog.conf(config file):
 
 Created file here:
 grader@ip-172-26-3-183:/etc/apache2/sites-available$ ll
@@ -482,7 +482,7 @@ sudo a2ensite catalog-app.conf
 sudo service apache2 restart
 
 
-# Resourses and Documentation used to complete project:
+## Resourses and Documentation used to complete project:
 
 Udacity course work Linux Server Configuration
 Amazon light sail
@@ -495,4 +495,4 @@ Stackoverflow
 WWW
 
 
-# Linux-Server-Configuration
+
