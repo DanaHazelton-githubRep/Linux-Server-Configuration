@@ -5,11 +5,11 @@ Server Hosted by Amazon Lightsail
 
 Web URL = http://ec2-18-217-137-212.us-east-2.compute.amazonaws.com
 
-IP Addr = 18.217.137.212 
+IP Addr = 18.217.137.212
 
 *IP address different in examples due to
 a reboot of the AWS server.
- 
+
 SSH Port = 2200
 
 
@@ -58,7 +58,7 @@ Welcome to Ubuntu 16.04.3 LTS (GNU/Linux 4.4.0-1013-aws x86_64)
 ## The grader user can run commands using sudo to inspect files that are readable only by root.
 
 grader@ip-172-26-3-183:~$ sudo /etc/passwd
-[sudo] password for grader: 
+[sudo] password for grader:
 grader@ip-172-26-3-183:~$ sudo cat /etc/passwd
 root:x:0:0:root:/root:/bin/bash
 daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
@@ -87,16 +87,16 @@ Status: active
 
 To                         Action      From
 --                         ------      ----
-22                         DENY        Anywhere                  
-80/tcp                     ALLOW       Anywhere                  
-123/udp                    ALLOW       Anywhere                  
-2200/tcp                   ALLOW       Anywhere                  
-23/tcp                     DENY        Anywhere                  
-22 (v6)                    DENY        Anywhere (v6)             
-80/tcp (v6)                ALLOW       Anywhere (v6)             
-123/udp (v6)               ALLOW       Anywhere (v6)             
-2200/tcp (v6)              ALLOW       Anywhere (v6)             
-23/tcp (v6)                DENY        Anywhere (v6)   
+22                         DENY        Anywhere
+80/tcp                     ALLOW       Anywhere
+123/udp                    ALLOW       Anywhere
+2200/tcp                   ALLOW       Anywhere
+23/tcp                     DENY        Anywhere
+22 (v6)                    DENY        Anywhere (v6)
+80/tcp (v6)                ALLOW       Anywhere (v6)
+123/udp (v6)               ALLOW       Anywhere (v6)
+2200/tcp (v6)              ALLOW       Anywhere (v6)
+23/tcp (v6)                DENY        Anywhere (v6)
 
 
 ## Key-based SSH authentication is enforced.
@@ -182,7 +182,7 @@ grader@ip-172-26-3-183:~$ cd /srv
 grader@ip-172-26-3-183:/srv$ ls -ls
 total 0
 grader@ip-172-26-3-183:/srv$ sudo mkdir catalog
-[sudo] password for grader: 
+[sudo] password for grader:
 grader@ip-172-26-3-183:/srv$ sudo chown www-data:www-data catalog/
 grader@ip-172-26-3-183:/srv$ ls -lsa
 total 12
@@ -245,7 +245,7 @@ Successfully installed flask-seasurf-0.2.2
 
 grader@ip-172-26-3-183:~$ sudo apt-get install postgresql postgresql-contrib
 Reading package lists... Done
-Building dependency tree       
+Building dependency tree
 Reading state information... Done
 postgresql is already the newest version (9.5+173ubuntu0.1).
 The following NEW packages will be installed:
@@ -255,7 +255,7 @@ Need to get 5,456 B of archives.
 After this operation, 59.4 kB of additional disk space will be used.
 Do you want to continue? [Y/n] y
 Get:1 http://us-east-2.ec2.archive.ubuntu.com/ubuntu xenial-updates/main amd64 postgresql-contrib all 9.5+173ubuntu0.1 [5,456 B]
-Fetched 5,456 B in 0s (28.5 kB/s)       
+Fetched 5,456 B in 0s (28.5 kB/s)
 Selecting previously unselected package postgresql-contrib.
 (Reading database ... 84965 files and directories currently installed.)
 Preparing to unpack .../postgresql-contrib_9.5+173ubuntu0.1_all.deb ...
@@ -282,7 +282,7 @@ host    all             all             ::1/128                 md5
 
 dh3008@ip-172-26-3-183:~$ sudo apt-get install git
 Reading package lists... Done
-Building dependency tree       
+Building dependency tree
 Reading state information... Done
 git is already the newest version (1:2.7.4-0ubuntu1.3).
 0 upgraded, 0 newly installed, 0 to remove and 4 not upgraded.
@@ -303,17 +303,17 @@ CREATE DATABASE
 
 
 dh3008@ip-172-26-3-183:~$ sudo su postgres
-[sudo] password for dh3008: 
+[sudo] password for dh3008:
 postgres@ip-172-26-3-183:/home/dh3008$ psql
 psql (9.5.11)
 Type "help" for help.
 
 postgres=# \l
                                   List of databases
-   Name    |  Owner   | Encoding |   Collate   |    Ctype    |   Access privileges   
+   Name    |  Owner   | Encoding |   Collate   |    Ctype    |   Access privileges
 -----------+----------+----------+-------------+-------------+-----------------------
- catalog   | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
- postgres  | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ catalog   | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 |
+ postgres  | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 |
  template0 | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/postgres          +
            |          |          |             |             | postgres=CTc/postgres
  template1 | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/postgres          +
@@ -325,10 +325,10 @@ postgres=# ALTER DATABASE catalog OWNER TO catalog;
 ALTER DATABASE
 postgres=# \l
                                   List of databases
-   Name    |  Owner   | Encoding |   Collate   |    Ctype    |   Access privileges   
+   Name    |  Owner   | Encoding |   Collate   |    Ctype    |   Access privileges
 -----------+----------+----------+-------------+-------------+-----------------------
- catalog   | catalog  | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
- postgres  | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ catalog   | catalog  | UTF8     | en_US.UTF-8 | en_US.UTF-8 |
+ postgres  | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 |
  template0 | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/postgres          +
            |          |          |             |             | postgres=CTc/postgres
  template1 | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/postgres          +
@@ -356,7 +356,7 @@ drwxr-xr-x 8 www-data www-data 4096 Feb 10 18:51 .git/
 drwxr-xr-x 4 www-data www-data 4096 Feb 12 02:59 ItemCatalog/ <-- App files
 
 ## WSGI file:
-grader@ip-172-26-3-183:/srv/catalog$ cat catalog.wsgi 
+grader@ip-172-26-3-183:/srv/catalog$ cat catalog.wsgi
 /#!/usr/bin/python
 import sys
 import logging
@@ -366,14 +366,14 @@ sys.path.insert(0, '/srv/catalog/ItemCatalog')
 from __init__ import app as application
 
 application.secret_key = 'super_secret_key'
- 
+
 
 ## Item Catalog files:
 grader@ip-172-26-3-183:/srv/catalog/ItemCatalog$ ll
 total 68
 drwxr-xr-x 4 www-data www-data  4096 Feb 12 02:59 ./
 drwxr-xr-x 4 www-data www-data  4096 Feb 12 23:22 ../
--rw-r--r-- 1 www-data www-data  1613 Feb 11 13:15 catalog_dbsu.py 
+-rw-r--r-- 1 www-data www-data  1613 Feb 11 13:15 catalog_dbsu.py
 -rw-r--r-- 1 www-data www-data  2411 Feb 11 20:13 catalog_dbsu.pyc
 -rw-r--r-- 1 www-data www-data  4103 Feb 11 13:14 Cats_Items.py
 -rw-r--r-- 1 www-data www-data   549 Feb 12 02:41 client_secrets.json
@@ -405,7 +405,7 @@ To match server addresses
 "javascript_origins":["http://18.217.137.212"," http://ec2-18-217-137-212.us-east-2.compute.amazonaws.com"]}}
 
 ## Trouble with Filenames in templates directory:
-	Renamed all file names in directory with lowercase only - resolved issue 
+	Renamed all file names in directory with lowercase only - resolved issue
 
 
 ## Create and enabed catalog.conf(config file):
@@ -419,7 +419,7 @@ drwxr-xr-x 8 root root 4096 Feb 12 00:25 ../
 -rw-r--r-- 1 root root 1824 Feb 12 01:38 catalog-app.conf <---
 -rw-r--r-- 1 root root 6338 Apr  5  2016 default-ssl.conf
 
-grader@ip-172-26-3-183:/etc/apache2/sites-available$ cat catalog-app.conf 
+grader@ip-172-26-3-183:/etc/apache2/sites-available$ cat catalog-app.conf
 <VirtualHost *:80>
         # The ServerName directive sets the request scheme, hostname and port that
         # the server uses to identify itself. This is used when creating
@@ -466,10 +466,10 @@ grader@ip-172-26-3-183:/etc/apache2/sites-available$ cat catalog-app.conf
 
 ## Then needed to enable config file on server to get it working:
 
-grader@ip-172-26-3-183:/etc/apache2/sites-enabled$ ll..
-total 8..
-drwxr-xr-x 2 root root 4096 Feb 10 22:01 ./..
-drwxr-xr-x 8 root root 4096 Feb 12 00:25 ../..
+grader@ip-172-26-3-183:/etc/apache2/sites-enabled$ ll
+total 8
+drwxr-xr-x 2 root root 4096 Feb 10 22:01 ./
+drwxr-xr-x 8 root root 4096 Feb 12 00:25 ../
 lrwxrwxrwx 1 root root   35 Feb 10 22:01 catalog-app.conf -> ../sites-available/catalog-app.conf..
 
 ## This required diabling the default.conf file :
