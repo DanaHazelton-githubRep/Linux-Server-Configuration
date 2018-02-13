@@ -1,4 +1,4 @@
-## Partybarge Car Catalog - Final Project for FSND Linux Server Configuration:
+### Partybarge Car Catalog - Final Project for FSND Linux Server Configuration:
 
 ## Server Info
 Server Hosted by Amazon Lightsail
@@ -49,14 +49,13 @@ GeSLRv8EL6ErwGHV31XhB6bSLYHyu6sJ8XE3DchFJjB9Zs8aoL12rI8xvcteWxAq
 5H1cZ9MPbrocT9kt73R7L1yFJW7FRYZPlBu5rWrcAsVa4luzacbaJCQ96jAkqdys
 -----END RSA PRIVATE KEY-----
 
-Login as grader  <--password grader
-ex:
+# Login as grader  <--password grader
+
 dana ~ $ ssh grader@52.15.228.45 -p 2200 -i ~/.ssh/amazon_aws
 Welcome to Ubuntu 16.04.3 LTS (GNU/Linux 4.4.0-1013-aws x86_64)
 
 
-##
-The grader user can run commands using sudo to inspect files that are readable only by root.
+# The grader user can run commands using sudo to inspect files that are readable only by root.
 
 grader@ip-172-26-3-183:~$ sudo /etc/passwd
 [sudo] password for grader: 
@@ -71,7 +70,7 @@ dh3008:x:1001:1001:Dana Hazelton,,,:/home/dh3008:/bin/bash
 grader:x:1002:1002:grader,,,:/home/grader:/bin/bash
 
 
-##Port Configuration:
+## Port Configuration:
 Only allow connections for SSH (port 2200), HTTP (port 80), and NTP (port 123).
 
 dana ~ $ ssh dh3008@52.15.228.45 -p 22 -i ~/.ssh/amazon_aws
@@ -102,13 +101,13 @@ To                         Action      From
 
 ## Key-based SSH authentication is enforced.
 
-# Change to no to disable tunnelled clear text passwords
+Change to no to disable tunnelled clear text passwords
 dh3008@ip-172-26-3-183:~$ sudo nano /etc/ssh/sshd_config
 PasswordAuthentication no
 
-
 ## SSH is hosted on non-default port.
-# What ports, IPs and protocols we listen for
+
+What ports, IPs and protocols we listen for
 
 dana ~ $ ssh dh3008@52.15.228.45 -p 2200 -i ~/.ssh/amazon_aws
 Welcome to Ubuntu 16.04.3 LTS (GNU/Linux 4.4.0-1013-aws x86_64)
@@ -116,8 +115,8 @@ Welcome to Ubuntu 16.04.3 LTS (GNU/Linux 4.4.0-1013-aws x86_64)
 Port 22 <--default is deny
 Port 2200 <-- allowed for shh
 
-## You cannot log in as root remotely.
-# Authentication:
+# You cannot log in as root remotely.
+## Authentication:
 LoginGraceTime 120
 PermitRootLogin no <-- disabled
 StrictModes yes
@@ -137,13 +136,13 @@ StrictModes yes
              If this option is set to “no”, root is not allowed to log in.
 
 
-## SSH is hosted on non-default port.
+# SSH is hosted on non-default port.
 
 dh3008@ip-172-26-3-183:~$ sudo cat /etc/ssh/sshd_config
-# Package generated configuration file
-# See the sshd_config(5) manpage for details
+## Package generated configuration file
+## See the sshd_config(5) manpage for details
 
-# What ports, IPs and protocols we listen for
+## What ports, IPs and protocols we listen for
 Port 2200
 
 dana ~ $ ssh dh3008@52.15.228.45 -p 2200 -i ~/.ssh/amazon_aws
@@ -164,7 +163,7 @@ Welcome to Ubuntu 16.04.3 LTS (GNU/Linux 4.4.0-1013-aws x86_64)
 Last login: Tue Feb  6 01:33:26 2018 from 108.252.105.240
 
 
-## The web server responds on port 80.
+# The web server responds on port 80.
 
 
 ## Change timezone to UTC
@@ -265,18 +264,18 @@ Setting up postgresql-contrib (9.5+173ubuntu0.1) ...
 
 
 ## To ensure that remote connections to PostgreSQL are not allowed:
-# "local" is for Unix domain socket connections only
+##"local" is for Unix domain socket connections only
 local   all             all                                     peer
-# IPv4 local connections:
+## IPv4 local connections:
 host    all             all             127.0.0.1/32            md5
-# IPv6 local connections:
+## IPv6 local connections:
 host    all             all             ::1/128                 md5
 
-# Allow replication connections from localhost, by a user with the
-# replication privilege.
-#local   replication     postgres                                peer
-#host    replication     postgres        127.0.0.1/32            md5
-#host    replication     postgres        ::1/128                 md5
+## Allow replication connections from localhost, by a user with the
+## replication privilege.
+## local   replication     postgres                                peer
+## host    replication     postgres        127.0.0.1/32            md5
+## host    replication     postgres        ::1/128                 md5
 
 
 ## Confige Postgres Database to Serve Web App.
@@ -367,10 +366,9 @@ sys.path.insert(0, '/srv/catalog/ItemCatalog')
 from __init__ import app as application
 
 application.secret_key = 'super_secret_key'
+ 
 
-#very basic configuration 
-
-## Item Catalog files:
+# Item Catalog files:
 grader@ip-172-26-3-183:/srv/catalog/ItemCatalog$ ll
 total 68
 drwxr-xr-x 4 www-data www-data  4096 Feb 12 02:59 ./
@@ -385,13 +383,13 @@ drwxr-xr-x 4 www-data www-data  4096 Feb 12 23:22 ../
 drwxr-xr-x 5 www-data www-data  4096 Feb 10 18:51 static/
 drwxr-xr-x 2 www-data www-data  4096 Feb 12 02:33 templates/
 
-# Files pointing to sqlite database needed to be repointed to Postgresql Database we created:
+## Files pointing to sqlite database needed to be repointed to Postgresql Database we created:
 __init_.py, catalog_dbsu.py # Cats_Items:
 engine = create_engine('postgresql://catalog:catalog@localhost:5432/catalog')
 
-# For OAuth to function  __init__.py & client_secrets.json required modification:
+## For OAuth to function  __init__.py & client_secrets.json required modification:
 
-# __init__.py
+## __init__.py
 
 CLIENT_ID = json.loads(
     open('/srv/catalog/ItemCatalog/client_secrets.json', 'r').read())['web']['client_id']
@@ -401,16 +399,16 @@ def gconnect():
         oauth_flow = flow_from_clientsecrets('/srv/catalog/ItemCatalog/client_secrets.json', scope='')
 
 
-# client_secrets.json
+## client_secrets.json
 
 To match server addresses
 "javascript_origins":["http://18.217.137.212"," http://ec2-18-217-137-212.us-east-2.compute.amazonaws.com"]}}
 
-# Trouble with Filenames in templates directory:
+## Trouble with Filenames in templates directory:
 	Renamed all file names in directory with lowercase only - resolved issue 
 
 
-## Create and enabed catalog.conf(config file):
+# Create and enabed catalog.conf(config file):
 
 Created file here:
 grader@ip-172-26-3-183:/etc/apache2/sites-available$ ll
@@ -466,7 +464,7 @@ grader@ip-172-26-3-183:/etc/apache2/sites-available$ cat catalog-app.conf
         CustomLog ${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>
 
-# Then needed to enable config file on server to get it working:
+## Then needed to enable config file on server to get it working:
 
 grader@ip-172-26-3-183:/etc/apache2/sites-enabled$ ll
 total 8
@@ -474,17 +472,17 @@ drwxr-xr-x 2 root root 4096 Feb 10 22:01 ./
 drwxr-xr-x 8 root root 4096 Feb 12 00:25 ../
 lrwxrwxrwx 1 root root   35 Feb 10 22:01 catalog-app.conf -> ../sites-available/catalog-app.conf 
 
-# This required diabling the default.conf file :
+## This required diabling the default.conf file :
 sudo a2dissite 000-default.conf
 
-# Then enable catalog.conf
+## Then enable catalog.conf
 sudo a2ensite catalog-app.conf
 
 ## To make this changes and provisioning active on server restart is required:
 sudo service apache2 restart
 
 
-## Resourses and Documentation used to complete project:
+# Resourses and Documentation used to complete project:
 
 Udacity course work Linux Server Configuration
 Amazon light sail
